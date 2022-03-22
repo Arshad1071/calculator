@@ -62,8 +62,13 @@ class Calculator {
 
 document.getElementById("equals").addEventListener("click", () => {
     const cal = new Calculator(parseInt(num1), parseInt(num2), optr);
-    document.getElementById("result").value = "=" + cal.result();
+    if (num1 != "" && num2 != "" && optr != "") {
+        document.getElementById("result").value = "=" + cal.result();
+    } else {
+        alert("Need two oprands and one operator !")
+    }
 })
+
 
 document.getElementById("ac").addEventListener("click", () => {
     location.reload();
