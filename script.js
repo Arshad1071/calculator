@@ -3,172 +3,31 @@ let num1 = "";
 let num2 = "";
 var optr;
 
-document.getElementById("1").addEventListener("click", (e) => {
-    e.preventDefault();
-    if (optr == undefined) {
-        onScr += e.target.value;
-        document.getElementById('operation').value = onScr;
-        num1 += e.target.value;
-    } else {
-        onScr += e.target.value;
-        document.getElementById('operation').value = onScr;
-        num2 += e.target.value;
-    }
-});
-
-document.getElementById("2").addEventListener("click", (e) => {
-    e.preventDefault();
-    if (optr == undefined) {
-        onScr += e.target.value;
-        document.getElementById('operation').value = onScr;
-        num1 += e.target.value;
-    } else {
-        onScr += e.target.value;
-        document.getElementById('operation').value = onScr;
-        num2 += e.target.value;
-    }
-});
-
-document.getElementById("3").addEventListener("click", (e) => {
-    e.preventDefault();
-    if (optr == undefined) {
-        onScr += e.target.value;
-        document.getElementById('operation').value = onScr;
-        num1 += e.target.value;
-    } else {
-        onScr += e.target.value;
-        document.getElementById('operation').value = onScr;
-        num2 += e.target.value;
-    }
-});
-
-document.getElementById("4").addEventListener("click", (e) => {
-    e.preventDefault();
-    if (optr == undefined) {
-        onScr += e.target.value;
-        document.getElementById('operation').value = onScr;
-        num1 += e.target.value;
-    } else {
-        onScr += e.target.value;
-        document.getElementById('operation').value = onScr;
-        num2 += e.target.value;
-    }
-});
-
-document.getElementById("5").addEventListener("click", (e) => {
-    e.preventDefault();
-    if (optr == undefined) {
-        onScr += e.target.value;
-        document.getElementById('operation').value = onScr;
-        num1 += e.target.value;
-    } else {
-        onScr += e.target.value;
-        document.getElementById('operation').value = onScr;
-        num2 += e.target.value;
-    }
-});
-
-document.getElementById("6").addEventListener("click", (e) => {
-    e.preventDefault();
-    if (optr == undefined) {
-        onScr += e.target.value;
-        document.getElementById('operation').value = onScr;
-        num1 += e.target.value;
-
-    } else {
-        onScr += e.target.value;
-        document.getElementById('operation').value = onScr;
-        num2 += e.target.value;
-    }
-});
-
-document.getElementById("7").addEventListener("click", (e) => {
-    e.preventDefault();
-    if (optr == undefined) {
-        onScr += e.target.value;
-        document.getElementById('operation').value = onScr;
-        num1 += e.target.value;
-    } else {
-        onScr += e.target.value;
-        document.getElementById('operation').value = onScr;
-        num2 += e.target.value;
-    }
-});
-
-document.getElementById("8").addEventListener("click", (e) => {
-    e.preventDefault();
-    if (optr == undefined) {
-        onScr += e.target.value;
-        document.getElementById('operation').value = onScr;
-        num1 += e.target.value;
-    } else {
-        onScr += e.target.value;
-        document.getElementById('operation').value = onScr;
-        num2 += e.target.value;
-    }
-});
-
-document.getElementById("9").addEventListener("click", (e) => {
-    e.preventDefault();
-    if (optr == undefined) {
-        onScr += e.target.value;
-        document.getElementById('operation').value = onScr;
-        num1 += e.target.value;
-    } else {
-        onScr += e.target.value;
-        document.getElementById('operation').value = onScr;
-        num2 += e.target.value;
-    }
-});
-
-document.getElementById("0").addEventListener("click", (e) => {
-    e.preventDefault();
-    if (optr == undefined) {
-        onScr += e.target.value;
-        document.getElementById('operation').value = onScr;
-        num1 += e.target.value;
-    } else {
-        onScr += e.target.value;
-        document.getElementById('operation').value = onScr;
-        num2 += e.target.value;
-    }
-});
-
-
-
-document.getElementById("add").addEventListener("click", (e) => {
-    if (optr == undefined) {
+document.querySelectorAll('[data-number]').forEach(button => {
+    button.addEventListener("click", (e) => {
         e.preventDefault();
-        optr = e.target.value;
-        document.getElementById("operation").value += "+";
-        onScr += "+";
-    }
-});
-document.getElementById("sub").addEventListener("click", (e) => {
-    if (optr == undefined) {
-        e.preventDefault();
-        optr = e.target.value;
-        document.getElementById("operation").value += "-";
-        onScr += "-";
-    }
-});
-document.getElementById("mul").addEventListener("click", (e) => {
-    if (optr == undefined) {
-        e.preventDefault();
-        optr = e.target.value;
-        document.getElementById("operation").value += "x";
-        onScr += "x";
-    }
-});
-document.getElementById("div").addEventListener("click", (e) => {
-    if (optr == undefined) {
-        e.preventDefault();
-        optr = e.target.value;
-        document.getElementById("operation").value += "/";
-        onScr += "/";
-    }
-});
+        if (optr == undefined) {
+            onScr += e.target.value;
+            document.getElementById('operation').value = onScr;
+            num1 += e.target.value;
+        } else {
+            onScr += e.target.value;
+            document.getElementById('operation').value = onScr;
+            num2 += e.target.value;
+        }
+    });
+})
 
+document.querySelectorAll('[data-operation]').forEach(button => {
+    button.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (optr == undefined) {
+            optr = e.target.value;
+            document.getElementById("operation").value += e.target.value;
+            onScr += e.target.value;
+        }
+    });
+})
 
 class Calculator {
     constructor(x, y, optr) {
@@ -180,16 +39,16 @@ class Calculator {
     result() {
         let res;
         switch (optr) {
-            case 'add':
+            case '+':
                 res = this.x + this.y;
                 break;
-            case 'sub':
+            case '-':
                 res = this.x - this.y;
                 break;
-            case 'mul':
+            case '*':
                 res = this.x * this.y;
                 break;
-            case 'div':
+            case '/':
                 res = this.x / this.y;
                 break;
             default:
@@ -197,11 +56,7 @@ class Calculator {
         }
         return res;
     };
-
 }
-
-
-
 
 document.getElementById("equalto").addEventListener("click", () => {
     const cal = new Calculator(parseInt(num1), parseInt(num2), optr);
