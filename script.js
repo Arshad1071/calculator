@@ -213,7 +213,7 @@ document.getElementById("c").addEventListener("click", () => {
         num2 = num2.slice(0, -1);
         onScr = onScr.slice(0, -1);
         document.getElementById('operation').value = onScr;
-        console.log("num1", num1, "num2", num2, onScr, "optr", optr);
+
     } else {
         if (optr != undefined) {
             optr = undefined;
@@ -224,7 +224,7 @@ document.getElementById("c").addEventListener("click", () => {
             num1 = num1.slice(0, -1);
             onScr = onScr.slice(0, -1);
             document.getElementById('operation').value = onScr;
-            console.log("num1", num1, "num2", num2, onScr, "optr", optr);
+
         }
     }
 })
