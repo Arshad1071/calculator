@@ -56,10 +56,30 @@ class Calculator {
         }
         return res;
     };
+
+    clear() {
+        if (num2 != "") {
+            num2 = num2.slice(0, -1);
+            onScr = onScr.slice(0, -1);
+            document.getElementById('operation').value = onScr;
+        } else {
+            if (optr != undefined) {
+                optr = undefined;
+                onScr = onScr.slice(0, -1);
+                document.getElementById('operation').value = onScr;
+                onScr = onScr.slice(0, -1);
+            } else {
+                num1 = num1.slice(0, -1);
+                onScr = onScr.slice(0, -1);
+                document.getElementById('operation').value = onScr;
+            }
+        }
+    }
 }
 
+const cal = new Calculator(parseInt(num1), parseInt(num2), optr);
+
 document.getElementById("equalto").addEventListener("click", () => {
-    const cal = new Calculator(parseInt(num1), parseInt(num2), optr);
     document.getElementById("result").value = "=" + cal.result();
 })
 
@@ -68,20 +88,5 @@ document.getElementById("ac").addEventListener("click", () => {
 })
 
 document.getElementById("c").addEventListener("click", () => {
-    if (num2 != "") {
-        num2 = num2.slice(0, -1);
-        onScr = onScr.slice(0, -1);
-        document.getElementById('operation').value = onScr;
-    } else {
-        if (optr != undefined) {
-            optr = undefined;
-            onScr = onScr.slice(0, -1);
-            document.getElementById('operation').value = onScr;
-            onScr = onScr.slice(0, -1);
-        } else {
-            num1 = num1.slice(0, -1);
-            onScr = onScr.slice(0, -1);
-            document.getElementById('operation').value = onScr;
-        }
-    }
+    cal.clear();
 })
