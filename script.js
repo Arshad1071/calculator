@@ -60,6 +60,8 @@ class Calculator {
             default:
                 return
         }
+
+        return computation;
         this.currentOperand = computation
         this.operation = undefined
         this.previousOperand = ''
@@ -94,7 +96,8 @@ class Calculator {
     }
 }
 
-const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
+const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
+
 
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
