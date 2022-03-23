@@ -60,7 +60,7 @@ class Calculator {
 
 document.getElementById("equals").addEventListener("click", () => {
     if (num1 != "" && num2 != "" && optr != "") {
-        const cal = new Calculator(parseInt(num1), parseInt(num2), optr);
+        const cal = new Calculator(parseFloat(num1), parseFloat(num2), optr);
         document.getElementById("result").value = "=" + cal.result();
     } else {
         alert("Need two oprands and one operator !")
